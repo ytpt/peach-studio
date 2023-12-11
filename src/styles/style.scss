@@ -154,7 +154,6 @@ a {
   margin-left: 1px;
 
   &:hover {
-    max-height: 0;
     background-color: var(--bg-button-hover);
   }
 }
@@ -480,7 +479,7 @@ a {
 .hover {
   justify-content: flex-start;
   height: 100%;
-  padding-top: 28px;
+  padding: 28px 115px 0 0;
 }
 
 /* BONUSES */
