@@ -101,7 +101,7 @@ a {
 
 .header {
   border: 1px solid var(--color-border);
-  padding: 28px 68px;
+  padding: 29px 67px 25px 67px;
 
   &__logo {
     padding-left: 3px;
@@ -136,7 +136,7 @@ a {
     display: flex;
     flex-direction: column;
     row-gap: 60px;
-    padding: 154px 69px;
+    padding: 156px 69px;
   }
 }
 
@@ -160,7 +160,7 @@ a {
 
 /*DESCRIPTION*/
 .description {
-  padding: 98px 100px;
+  padding: 100px;
   margin: 100px 72px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
 
@@ -242,8 +242,7 @@ a {
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.06);
-
-    padding: 28px 70px;
+    padding: 26px 71px;
   }
 
   &__header {
@@ -301,7 +300,7 @@ a {
 
   &__figure {
     position: relative;
-    margin: 89px 0 0 30px
+    margin: 92px 0 0 31px
   }
 
   &__sublist {
@@ -503,7 +502,7 @@ a {
     flex-direction: column;
     row-gap: 145px;
     align-items: center;
-    padding: 77px 0;
+    padding: 75px 0;
     box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.06);
   }
 
@@ -582,7 +581,7 @@ a {
   display: flex;
   flex-direction: column;
   row-gap: 52px;
-  padding: 6px 70px 70px 70px;
+  padding: 8px 70px 70px 70px;
 
   &__header {
     display: flex;
