@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="currentColor">
+    <title>Peach Frontend</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <header class="header">
+                <a href="#root" class="header__logo">
+                    <img src="./assets/logo.svg" alt="Лого" width="125" height="25">
+                </a>
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Облачные решения</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Кибербезопасность</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Импортозамещение</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Цифровая трансформация</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main class="main">
+                <section class="about">
+                    <img src="./assets/city-view.png" alt="Город">
+                    <div class="about__title">
+                        <h1>Поставщик услуг цифровой трансформации<br>и кибербезопасности</h1>
+                        <a href="https://softline.ru" class="button">На сайт</a>
+                    </div>
+                </section>
+                <section class="description">
+                    <p class="description__title">
+                        <span class="description__title_red">Softline</span>
+                        – ведущий поставщик IT-решений и сервисов.*<br> Мы предлагаем комплексные IT-решения, облака, программное<br> и аппаратное обеспечение, решения по цифровой трансформации и кибербезопасности, а также широкий спектр IT-услуг.
+                    </p>
+                </section>
+                <section class="achievements">
+                    <ul class="achievements__list">
+                        <li class="achievements__item ">
+                            <div class="achievements__item__title">
+                                <span class="achievements__item__title-big">> </span>
+                                <h2 class="achievements__item-num">30 лет</h2>
+                            </div>
+                            <p class="achievements__item__text">на IT-рынке</p>
+                        </li>
+                        <li class="achievements__item">
+                            <h2 class="achievements__item-num">4600</h2>
+                            <p class="achievements__item__text">сотрудников в России</p>
+                        </li>
+                        <li class="achievements__item">
+                            <h2 class="achievements__item-num">25</h2>
+                            <p class="achievements__item__text">городов России</p>
+                        </li>
+                        <li class="achievements__item center">
+                            <div class="achievements__item__title">
+                                <span class="achievements__item-num">2000</span>
+                                <span class="achievements__item__title-big">+</span>
+                            </div>
+                            <p class="achievements__item__text">разработчиков</p>
+                        </li>
+                        <li class="achievements__item center">
+                            <div class="achievements__item__title">
+                                <span class="achievements__item-num">3000</span>
+                                <span class="achievements__item__title-big">+</span>
+                            </div>
+                            <p class="achievements__item__text">сотрудников ежегодно проходят оценку и обучение</p>
+                        </li>
+                    </ul>
+                </section>
+                <section class="map">
+                    <div class="map__container">
+                        <a class="map__header">
+                            <h3 class="map__header-title">Офисы Softline</h3>
+                            <img class="map__header-icon" src="assets/arrow-down-black.svg" alt="Вниз" width="24" height="24">
+                        </a>
+                        <nav class="map__nav">
+                            <ul class="map__list">
+                                <li class="map__item">
+                                    <a class="map__link active">Все</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Москва</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Центр</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Северо-Запад</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Юг</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Волга</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Урал</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Сибирь</a>
+                                </li>
+                                <li class="map__item">
+                                    <a class="map__link">Дальний Восток</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="map__menu--hidden">
+                            <nav class="map__nav--hidden">
+                                <ul class="map__list--hidden">
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Москва</a>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Центр</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Воронеж</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Ярославль</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Белгород</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Северо-Запад</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Санкт-Петербург</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Калининград</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Юг</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Ростов-на-Дону</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Краснодар</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Волгоград</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Волга</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Казань</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Самара</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Уфа</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Оренбург</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Нижний-Новгород</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Урал</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Екатеринбург</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Челябинск</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Пермь</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Сургут</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Тюмень</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Ижевск</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Сибирь</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Новосибирск</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Омск</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Томск</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Красноярск</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Иркутск</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="map__item--hidden">
+                                        <a class="map__link--hidden">Дальний Восток</a>
+                                        <ul class="map__sublist">
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Хабаровск</a>
+                                            </li>
+                                            <li class="map__subitem">
+                                                <a class="map__sublink">Владивосток</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <figure class="map__figure">
+                        <img class="map__img" src="assets/map.svg" alt="Карта">
+                    </figure>
+                </section>
+                <section class="mission content">
+                    <div class="mission__container">
+                        <h2 class="mission__title">Миссия Softline</h2>
+                        <p class="mission__text">Мы помогаем организациям трансформироваться, работать эффективно и безопасно в условиях цифровой экономики.</p>
+                        <img class="mission__pattern--left" src="assets/left-pattern.svg" alt="Узор слева" width="348" height="377">
+                        <img class="mission__pattern--right" src="assets/right-pattern.svg" alt="Узор справа" width="348" height="377">
+                    </div>
+                </section>
+                <section class="directions content">
+                    <h2 class="directions__title">Направления бизнеса</h2>
+                    <div class="directions__items">
+                        <div class="directions__item">
+                            <img src="assets/directions_item1.png" alt="Решения Softline" width="615" height="260">
+                            <div class="directions__item-block regular">
+                                <h3 class="directions__item-title">Решения Softline</h3>
+                                <p class="directions__item-text">ГК Softline предлагает клиентам собственную линейку оборудования (ПК, серверы, торговое оборудование и проч.), разработку программных продуктов, облачных решений, решений в области информационной безопасности.</p>
+                            </div>
+                        </div>
+                        <div class="directions__item">
+                            <img src="assets/directions_item2.png" alt="Кибербезопасность" width="615" height="260">
+                            <div class="directions__item-block regular">
+                                <h3 class="directions__item-title">Кибербезопасность</h3>
+                                <p class="directions__item-text">Softline обладает всеми необходимыми государственными лицензиями для организации проектов по информационной безопасности и аттестации.</p>
+                            </div>
+                        </div>
+                        <div class="directions__item">
+                            <img src="assets/directions_item3.png" alt="Импортозамещение" width="615" height="260">
+                            <div class="directions__item-block regular">
+                                <h3 class="directions__item-title">Импортозамещение</h3>
+                                <p class="directions__item-text">ГК Softline обладает широчайшим портфелем решений и услуг для импортозамещения, включая ПО и оборудование собственного производства.</p>
+                            </div>
+                        </div>
+                        <div class="directions__item">
+                            <img src="assets/directions_item4.png" alt="Облачные решения" width="615" height="260">
+                            <div class="directions__item-block regular">
+                                <h3 class="directions__item-title">Облачные решения</h3>
+                                <p class="directions__item-text">Softline использует современные облачные решения как российских, так и международных вендоров для масштабирования бизнеса своих клиентов. Подписки, услуги, трансформация.</p>
+                            </div>
+                        </div>
+                        <div class="directions__item">
+                            <img src="assets/directions_item5.png" alt="Цифровая трансформация и разработка ПО" width="615" height="260">
+                            <div class="directions__item-block regular">
+                                <h3 class="directions__item-title">Цифровая трансформация<br> и разработка ПО</h3>
+                                <p class="directions__item-text">Softline использует современные технологи и новые возможности для увеличения производительности бизнеса заказчика. В штате ГК Softline - 2000+ разработчиков, которые трансформируют ПО под нужды конкретного предприятия.</p>
+                            </div>
+                        </div>
+                        <div class="directions__item">
+                            <img src="assets/directions_item6.png" alt="Техническая поддержка Softline" width="615" height="260">
+                            <div class="directions__item-block regular">
+                                <h3 class="directions__item-title">Техническая поддержка Softline</h3>
+                                <p class="directions__item-text">200+ инженеров, 24 часа в сутки, 7 дней в неделю, 12 месяцев в году, сервисное партнерство с 30+ мировыми производителями.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="bonuses">
+                    <div class="bonuses__container content">
+                        <div class="bonuses__package">
+                            <h2 class="bonuses__package-title">Компенсационный пакет</h2>
+                            <ul class="bonuses__list">
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/DMS.svg" alt="ДМС" width="48" height="48">
+                                    </div>
+                                    <p class="bonuses__item-text">ДМС</p>
+                                </li>
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/dayoff.svg" alt="День рождения" width="48" height="48">
+                                    </div>
+                                   <p class="bonuses__item-text">Выходной<br> в день рождения</p>
+                                </li>
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__package__item-image" src="assets/phone.svg" alt="Сотовая свзязь" width="48" height="48">
+                                    </div>
+                                   <p class="bonuses__item-text">Корпоративная мобильная связь</p>
+                                </li>
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/sport.svg" alt="Спорт" width="48" height="48">
+                                    </div>
+                                    <p class="bonuses__item-text">Корпоративные скидки на спорт</p>
+                                </li>
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/LTI.svg" alt="Обучение" width="66" height="48">
+                                    </div>
+                                    <p class="bonuses__item-text">LTI</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bonuses__motivation">
+                            <h3 class="bonuses__motivation-title">Программа дополнительной мотивации
+                                <span class="bonuses__motivation-title-red">доплата 12% от суммы</span>
+                            </h3>
+                            <ul class="bonuses__list">
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/printer.svg" alt="Техника" width="48" height="48">
+                                    </div>
+                                   <p class="bonuses__item-text">Оргтехники</p>
+                                </li>
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/DMS.svg" alt="ДМС" width="48" height="48">
+                                    </div>
+                                   <p class="bonuses__item-text">ДМС</p>
+                                </li>
+                                <li class="bonuses__item">
+                                    <div class="bonuses__item-circle">
+                                        <img class="bonuses__item-image" src="assets/house.svg" alt="Ипотека" width="48" height="48">
+                                    </div>
+                                    <p class="bonuses__item-text">Ипотеки</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="corporate-life content">
+                    <div class="corporate-life__header">
+                        <h2 class="corporate-life-title">Корпоративная жизнь</h2>
+                        <div class="corporate-life__swiper-buttons">
+                            <div class="corporate-life__swiper-buttons-prev">
+                                <img class="corporate-life__swiper-buttons-image" src="assets/arrow-left-red.svg" alt="Влево" width="15" height="21">
+                            </div>
+                            <div class="corporate-life__swiper-buttons-next">
+                                <img class="corporate-life__swiper-buttons-image" src="assets/arrow-right-red.svg" alt="Вправо" width="15" height="21">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/slide1.jpg" alt="Первый слайд">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/slide2.jpg" alt="Второй слайд">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/slide3.jpg" alt="Третий слайд">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/slide4.jpg" alt="Четвёртый слайд">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/slide5.jpg" alt="Пятый слайд">
+                            </div>
+                        </div>
+                        <div class="corporate-life__swiper-pagination"></div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
