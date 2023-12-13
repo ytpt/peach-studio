@@ -1,38 +1,43 @@
 import { regions } from './data';
+import triangleDown from '../assets/triangle-down.svg';
+import ellipse from '../assets/ellipse.svg';
 
 document.addEventListener('DOMContentLoaded', function() {
     const mapContainer = document.querySelector('.map__container');
     const mapHeaderButtons = document.querySelectorAll('.map__header');
     const mapHeader = document.querySelector('.map__header');
-    const arrowIcon = document.querySelector('.map__header-icon');
     const mapImg = document.querySelector('.map__figure');
+    const mapNav = document.querySelector('.map__nav');
+    const mapButtons = document.querySelectorAll('.map__link');
     const hiddenMenu = document.querySelector('.map__menu--hidden');
     const regionBlocks = document.querySelectorAll('.map__item--hidden');
-    const arrowAlt = arrowIcon.getAttribute('alt');
-    const mapFigure = document.querySelector('.map__figure');
-    const mapLinks = document.querySelectorAll('.map__link');
-    const allButton = document.querySelector('.map__link');
-    const existingPoints = document.querySelectorAll('.mark');
-    const items = document.querySelectorAll('.directions__item');
 
     // Set attributes function
-    const setAttribute = (item, alt, path) => {
-        item.setAttribute('alt', alt);
-        item.setAttribute('src', path);
+    const setAttribute = (elem, alt, path) => {
+        elem.setAttribute('alt', alt);
+        elem.setAttribute('src', path);
     }
 
     //Create triangle marker
-    const triangle = document.createElement('img');
+    let triangle = document.createElement('img');
+    triangle.src = triangleDown;
     setAttribute(triangle, 'Вниз','assets/triangle-down.svg');
     triangle.classList.add('triangle');
 
     // Toggle active menu button
-    mapLinks.forEach(btn => {
-        btn.addEventListener('click', function() {
+    mapButtons.forEach(link => {
+        link.addEventListener('click', function() {
             document.querySelector('.active').classList.remove('active');
-            btn.classList.add('active');
+            link.classList.add('active');
         });
     });
+
+    // Hide hidden menu
+    const hideMenu = (arrowIcon) => {
+        setAttribute(arrowIcon, 'Вниз', 'assets/arrow-down-black.svg');
+        mapButtons.forEach(btn => btn.classList.toggle('disable'));
+        mapImg.classList.toggle('disable');
+    }
 
     // Toggle sublist
     regionBlocks.forEach(region => {
@@ -44,41 +49,43 @@ document.addEventListener('DOMContentLoaded', function() {
             if (triangleAlt === 'Вниз') {
                 if (region.querySelector('.map__sublist')) {
                     region.querySelector('.map__sublist').style.display = 'flex';
-                    setAttribute(triangleItem, 'Вверх', 'assets/triangle-up.svg');
+                    triangleItem.style.transform = 'scaleY(-1)';
+                    triangleItem.setAttribute('alt', 'Вверх');
                     regionTitle.style.color = 'var(--color-red)';
                 }
             } else {
                 if (region.querySelector('.map__sublist')) {
                     region.querySelector('.map__sublist').style.display = 'none';
                 }
-                setAttribute(triangleItem, 'Вниз', 'assets/triangle-down.svg');
+                triangleItem.style.transform = 'scaleY(-1)';
+                triangleItem.setAttribute('alt', 'Вниз');
                 regionTitle.style.color = 'var(--color-dark)';
             }
         })
     });
-
+    /*ПРОБЛЕМА В ДВУХ КНОПКАХ*/
     // Toggle hidden map menu
     mapHeaderButtons.forEach(btn => {
         btn.addEventListener('click', function() {
+            hiddenMenu.classList.toggle('visible');
+            
             regionBlocks.forEach(region => {
-
                 // Add triangle markers
                 if (!region.querySelector('.triangle')) {
                     const clonedTriangle = triangle.cloneNode(true);
                     region.firstElementChild.append(clonedTriangle);
                 }
             });
-
-            hiddenMenu.classList.toggle('visible');
+            /*ПРОБЛЕМА В ТОМ, ЧТО АЛЬТ ВСЕГДА ВНИЗ*/
+            const arrowIcon = btn.querySelector('.map__header-icon');
+            const arrowAlt = arrowIcon.getAttribute('alt');
 
             if (arrowAlt === 'Вниз') {
-                mapLinks.forEach(btn => btn.classList.add('disable'));
-                mapImg.classList.add('disable');
+                mapButtons.forEach(btn => btn.classList.toggle('disable'));
+                mapImg.classList.toggle('disable');
                 setAttribute(arrowIcon, 'Вверх', 'assets/arrow-up-black.svg');
             } else {
-                mapLinks.forEach(btn => btn.classList.remove('disable'));
-                mapImg.classList.remove('disable');
-                setAttribute(arrowIcon, 'Вниз', 'assets/arrow-down-black.svg');
+                hideMenu(arrowIcon);
             }
 
             if (window.innerWidth < 769) {
@@ -91,22 +98,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(event) {
         const isClickInsideMenu = hiddenMenu.contains(event.target);
         const isClickOnHeaderButton = mapHeader.contains(event.target);
+        const isClickOnNav = mapNav.contains(event.target);
+        const arrowIcon = mapHeader.querySelector('.map__header-icon');
 
-        if (!isClickInsideMenu && !isClickOnHeaderButton) {
+        if (!isClickInsideMenu && !isClickOnHeaderButton && !isClickOnNav) {
             if (hiddenMenu.classList.contains('visible')) {
                 hiddenMenu.classList.toggle('visible');
             }
-
-            setAttribute(arrowIcon, 'Вниз', 'assets/arrow-down-black.svg');
-            mapLinks.forEach(btn => btn.classList.remove('disable'));
-            mapImg.classList.remove('disable');
+            hideMenu(arrowIcon);
         }
     });
 
     // Toggle map cities marks
+    const mapFigure = document.querySelector('.map__figure');
+    const mapLinks = document.querySelectorAll('.map__link');
+    const allButton = document.querySelector('.map__link');
     let isAllCitiesShown = false;
 
-    function showAllCities() {
+    const showAllCities = () => {
         if (!isAllCitiesShown) {
             clearMapPoints();
             Object.keys(regions).forEach(region => drawMapPoints(regions[region]));
@@ -129,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function clearMapPoints() {
+        const existingPoints = document.querySelectorAll('.mark');
         existingPoints.forEach(point => point.remove());
         isAllCitiesShown = false;
     }
@@ -158,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
             point.style.top = `${cityCoords.y}px`;
 
             let pointImg = document.createElement('img');
+            pointImg.src = ellipse;
             setAttribute(pointImg, 'Точка', 'assets/ellipse.svg');
             pointImg.classList.add('dot-size');
 
@@ -181,6 +192,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* Toggle directions items by click */
     if (window.innerWidth < 769) {
+        const items = document.querySelectorAll('.directions__item');
+
         items.forEach(item => {
             const itemBlock = item.querySelector('.directions__item-block');
             const itemText = item.querySelector('.directions__item-text');

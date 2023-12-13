@@ -5,10 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     devServer: {
         port: 3000,
-        static: './public',
+        static: './src',
     },
     entry: {
-        main: path.resolve(__dirname, './src/index.js'),
+        main: path.resolve(__dirname, './src/app/index.js'),
         styles: path.resolve(__dirname, './src/styles/style.scss'),
     },
     output: {
@@ -20,7 +20,7 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                include: path.resolve(__dirname, 'src/js'),
+                include: path.resolve(__dirname, 'src/app'),
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -52,14 +52,13 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|svg|gif)$/,
-                // use: ['file-loader'],
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'images/',
-                            publicPath: 'images/',
+                            outputPath: 'assets/',
+                            publicPath: 'assets/',
                         },
                     },
                 ],
@@ -68,7 +67,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'public', 'index.html'),
+            template: path.resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html',
         }),
         new MiniCssExtractPlugin({
@@ -76,5 +75,5 @@ module.exports = {
             chunkFilename: '[id].css',
         }),
     ],
-    mode: 'development',
+    mode: 'production',
 };
