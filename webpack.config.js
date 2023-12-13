@@ -12,7 +12,7 @@ module.exports = {
         styles: path.resolve(__dirname, './src/styles/style.scss'),
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './docs'),
         filename: '[name].bundle.js',
     },
     devtool: "source-map",
