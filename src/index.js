@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const mapImg = document.querySelector('.map__figure');
     const hiddenMenu = document.querySelector('.map__menu--hidden');
     const regionBlocks = document.querySelectorAll('.map__item--hidden');
-    const mapButtons = document.querySelectorAll('.map__link');
     const arrowAlt = arrowIcon.getAttribute('alt');
-    const sublistArray = document.querySelectorAll('.map__sublist');
-    const regionTitleArray = document.querySelectorAll('.map__title--hidden');
+    const mapFigure = document.querySelector('.map__figure');
+    const mapLinks = document.querySelectorAll('.map__link');
+    const allButton = document.querySelector('.map__link');
+    const existingPoints = document.querySelectorAll('.mark');
+    const items = document.querySelectorAll('.directions__item');
 
     // Set attributes function
     const setAttribute = (item, alt, path) => {
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     triangle.classList.add('triangle');
 
     // Toggle active menu button
-    mapButtons.forEach(btn => {
+    mapLinks.forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelector('.active').classList.remove('active');
             btn.classList.add('active');
@@ -70,13 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
             hiddenMenu.classList.toggle('visible');
 
             if (arrowAlt === 'Вниз') {
-                mapButtons.forEach(btn => btn.classList.add('disable'));
+                mapLinks.forEach(btn => btn.classList.add('disable'));
                 mapImg.classList.add('disable');
                 setAttribute(arrowIcon, 'Вверх', 'assets/arrow-up-black.svg');
-                sublistArray.forEach(sublist => sublist.style.display = 'none');
-                regionTitleArray.forEach(title => title.style.color = 'var(--color-dark');
             } else {
-                mapButtons.forEach(btn => btn.classList.remove('disable'));
+                mapLinks.forEach(btn => btn.classList.remove('disable'));
                 mapImg.classList.remove('disable');
                 setAttribute(arrowIcon, 'Вниз', 'assets/arrow-down-black.svg');
             }
@@ -98,16 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             setAttribute(arrowIcon, 'Вниз', 'assets/arrow-down-black.svg');
-            mapButtons.forEach(btn => btn.classList.remove('disable'));
+            mapLinks.forEach(btn => btn.classList.remove('disable'));
             mapImg.classList.remove('disable');
         }
     });
 
-
     // Toggle map cities marks
-    const mapFigure = document.querySelector('.map__figure');
-    const mapLinks = document.querySelectorAll('.map__link');
-    const allButton = document.querySelector('.map__link');
     let isAllCitiesShown = false;
 
     function showAllCities() {
@@ -133,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function clearMapPoints() {
-        const existingPoints = document.querySelectorAll('.mark');
         existingPoints.forEach(point => point.remove());
         isAllCitiesShown = false;
     }
@@ -171,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             point.style.fontSize = `${fontSize}px`;
             pointTitle.textContent = cityName;
 
-            if (cityName !== "Томск" && cityName !== "Хабаровск") {
+            if (cityName !== 'Томск' && cityName !== 'Хабаровск') {
                 pointTitle.style.lineHeight = `${fontSize}px`;
                 point.appendChild(pointImg);
                 point.appendChild(pointTitle);
@@ -186,8 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* Toggle directions items by click */
     if (window.innerWidth < 769) {
-        const items = document.querySelectorAll('.directions__item');
-
         items.forEach(item => {
             const itemBlock = item.querySelector('.directions__item-block');
             const itemText = item.querySelector('.directions__item-text');
