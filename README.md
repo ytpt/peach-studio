@@ -20,4 +20,4 @@ npm run build  # сборка проекта для продакшена
 ```
 
 ## Развертывание проекта
-Проект развернут на GitHub Pages. Ссылка на проект
+Проект развернут на GitHub Pages. Ссылка на проект https://ytpt.github.io/peach-studio/
