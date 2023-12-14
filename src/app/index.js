@@ -13,15 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const regionBlocks = document.querySelectorAll('.map__item--hidden');
 
     // Set attributes function
-    const setAttribute = (elem, alt, path) => {
+    const setAttributes = (elem, alt, path) => {
         elem.setAttribute('alt', alt);
         elem.setAttribute('src', path);
     }
 
     //Create triangle marker
     let triangle = document.createElement('img');
-    triangle.src = triangleDown;
-    setAttribute(triangle, 'Вниз','assets/triangle-down.svg');
+    setAttributes(triangle, 'Вниз', triangleDown);
     triangle.classList.add('triangle');
 
     // Toggle active menu button
@@ -34,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hide hidden menu
     const hideMenu = (arrowIcon) => {
-        setAttribute(arrowIcon, 'Вниз', 'assets/arrow-down-black.svg');
+        arrowIcon.setAttribute('alt', 'Вниз');
+        arrowIcon.style.transform = 'scale(1)';
         mapButtons.forEach(btn => btn.classList.toggle('disable'));
         mapImg.classList.toggle('disable');
     }
@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (region.querySelector('.map__sublist')) {
                     region.querySelector('.map__sublist').style.display = 'none';
                 }
-                triangleItem.style.transform = 'scaleY(-1)';
+                triangleItem.style.transform = 'scaleY(1)';
                 triangleItem.setAttribute('alt', 'Вниз');
                 regionTitle.style.color = 'var(--color-dark)';
             }
         })
     });
-    /*ПРОБЛЕМА В ДВУХ КНОПКАХ*/
+
     // Toggle hidden map menu
     mapHeaderButtons.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -76,14 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     region.firstElementChild.append(clonedTriangle);
                 }
             });
-            /*ПРОБЛЕМА В ТОМ, ЧТО АЛЬТ ВСЕГДА ВНИЗ*/
             const arrowIcon = btn.querySelector('.map__header-icon');
             const arrowAlt = arrowIcon.getAttribute('alt');
 
             if (arrowAlt === 'Вниз') {
                 mapButtons.forEach(btn => btn.classList.toggle('disable'));
                 mapImg.classList.toggle('disable');
-                setAttribute(arrowIcon, 'Вверх', 'assets/arrow-up-black.svg');
+                arrowIcon.style.transform = 'scaleY(-1)';
+                arrowIcon.setAttribute('alt', 'Вверх');
             } else {
                 hideMenu(arrowIcon);
             }
@@ -95,17 +95,22 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     // Hide hidden menu while click outside menu
+    let menuVisible = false;
+
     document.addEventListener('click', function(event) {
         const isClickInsideMenu = hiddenMenu.contains(event.target);
         const isClickOnHeaderButton = mapHeader.contains(event.target);
         const isClickOnNav = mapNav.contains(event.target);
         const arrowIcon = mapHeader.querySelector('.map__header-icon');
 
-        if (!isClickInsideMenu && !isClickOnHeaderButton && !isClickOnNav) {
+        if (isClickInsideMenu || isClickOnHeaderButton || isClickOnNav) {
+            menuVisible = true;
+        } else if (!isClickInsideMenu && !isClickOnHeaderButton && !isClickOnNav && menuVisible) {
             if (hiddenMenu.classList.contains('visible')) {
-                hiddenMenu.classList.toggle('visible');
+                hiddenMenu.classList.remove('visible');
+                hideMenu(arrowIcon);
             }
-            hideMenu(arrowIcon);
+            menuVisible = false;
         }
     });
 
@@ -169,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let pointImg = document.createElement('img');
             pointImg.src = ellipse;
-            setAttribute(pointImg, 'Точка', 'assets/ellipse.svg');
+            setAttributes(pointImg, 'Точка', ellipse);
             pointImg.classList.add('dot-size');
 
             let pointTitle = document.createElement('p');
@@ -197,20 +202,23 @@ document.addEventListener('DOMContentLoaded', function() {
         items.forEach(item => {
             const itemBlock = item.querySelector('.directions__item-block');
             const itemText = item.querySelector('.directions__item-text');
-            const arrowIcon = item.querySelector('.directions__item-icon');
+            let arrowIcon = item.querySelector('.directions__item-icon');
 
             item.addEventListener('click', function() {
                 const currentAlt = arrowIcon.getAttribute('alt');
+
                 if (currentAlt === 'Вниз') {
                     itemBlock.classList.toggle('block-visible');
                     item.classList.toggle('item-expand');
                     itemText.style.display = 'block';
-                    setAttribute(arrowIcon, 'Вверх','assets/arrow-up-white.svg');
+                    arrowIcon.style.transform = 'scaleY(-1)';
+                    arrowIcon.setAttribute('alt', 'Вверх');
                 } else {
                     item.classList.toggle('item-expand');
                     itemBlock.classList.toggle('block-visible');
                     itemText.style.display = 'none';
-                    setAttribute(arrowIcon, 'Вниз','assets/arrow-down-white.svg');
+                    arrowIcon.style.transform = 'scaleY(1)';
+                    arrowIcon.setAttribute('alt', 'Вниз');
                 }
             })
         })
